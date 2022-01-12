@@ -134,7 +134,7 @@ st.dataframe(df_aprovados)
 #Seção 2 - Simulador
 ##########
 st.header('Simulador de novos clientes')
-st.write('Veja como seriam as previsões para novos clientes. Teste diferentes configurações e veja ao lado como o algoritmo chegou a esta conclusão.')
+st.write('Veja como seriam as previsões para novos clientes. Teste diferentes configurações e veja ao lado como o algoritmo chegou a esta conclusão. As previsões atualizam <em>em tempo real.</em>')
 st.write('Do ponto de vista de Ciência de Dados, nenhum algoritmo será 100% preciso. Por outro lado, saber como ele funciona (e como ele chega às suas conclusões) nos dá um nível de confiança maior sobre a sua lógica.')
 col1, col2 = st.columns(2)
 
