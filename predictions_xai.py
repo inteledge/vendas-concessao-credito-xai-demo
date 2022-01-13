@@ -25,8 +25,9 @@ st.set_page_config(page_title='Inteledge - Simulador de Crédito', page_icon="�
 ##########
 @st.cache(allow_output_mutation=True)
 def get_pickles():
-	best_pipeline, expected_value = pickle.load(open('model.pkl', 'rb'))
+	# base de sample carregada para tratamento de exception do modelo de ML
 	df_sample = pickle.load(open('sample.pkl', 'rb'))
+	best_pipeline, expected_value = pickle.load(open('model.pkl', 'rb'))
 	
 	return best_pipeline, df_sample, expected_value
 
@@ -120,7 +121,8 @@ with col1:
 
 st.title('Simulador de Crédito')
 st.markdown('Inteligência artificial para previsão de risco de crédito para novos clientes construído para uma base de dados fictícia pela Inteledge para você testar. Ficou interessado em fazer algo parecido para o seu negócio? Entre em contato conosco no [@inteledge.lab](https://instagram.com/inteledge.lab) no Instagram!')
-st.write('Mostramos a previsão por cliente e como o nosso algoritmo chegou à conclusão para cada caso.')
+st.write('Aqui, mostramos a previsão por cliente e como o nosso algoritmo chegou à conclusão para cada caso.')
+st.markdown('Confira também [algumas análises que fizemos para esta base de dados](https://share.streamlit.io/wmonteiro92/vendas-concessao-credito-analise-demo/main/exploration.py).')
 
 st.header('Últimas previsões')
 
@@ -141,29 +143,29 @@ col1, col2 = st.columns(2)
 with col1:
 	# variáveis 
 	idade = st.slider('Idade',
-		int(df['Idade'].min()), int(df['Idade'].max()), int(df['Idade'].median()))
+		int(df['Idade'].min()), int(df['Idade'].max()), int(df['Idade'].iloc[2]))
 
 	valor_pedido = st.slider('Valor pedido',
 		int(df['Valor pedido'].min()), int(df['Valor pedido'].max()),
-		int(df['Valor pedido'].median()))
+		int(df['Valor pedido'].iloc[2]))
 		 
 	num_parcelas = st.slider('Número de parcelas',
 		int(df['Número de parcelas'].min()), int(df['Número de parcelas'].max()),
-		int(df['Número de parcelas'].median()))
+		int(df['Número de parcelas'].iloc[2]))
 
 	tempo_residencia = st.slider('Tempo morando na residência atual',
 		int(df['Tempo morando na residência atual'].min()),
 		int(df['Tempo morando na residência atual'].max()),
-		int(df['Tempo morando na residência atual'].median()))
+		int(df['Tempo morando na residência atual'].iloc[2]))
 	   
 	num_emprestimos = st.slider('Número de empréstimos passados',
 		int(df['Número de empréstimos passados'].min()),
 		int(df['Número de empréstimos passados'].max()),
-		int(df['Número de empréstimos passados'].median()))
+		int(df['Número de empréstimos passados'].iloc[2]))
 		
 	num_referencias = st.slider('Número de referências',
 		int(df['Número de referências'].min()), int(df['Número de referências'].max()),
-		int(df['Número de referências'].median()))
+		int(df['Número de referências'].iloc[2]))
 		
 	saldo_conta = st.selectbox('Saldo na conta',
 		('Negativo', 'Entre 0 e 10000', 'Entre 10001 e 80000', 'Acima de 80001'))
