@@ -118,7 +118,7 @@ with col1:
 	st.image('inteledge.png')
 
 st.title('Simulador de Crédito')
-st.markdown('Inteligência artificial para previsão de risco de crédito para novos clientes construído para uma base de dados fictícia pela Inteledge para você testar. Ficou interessado em fazer algo parecido para o seu negócio? Entre em contato conosco no [@inteledge.lab](https://instagram.com/inteledge.lab) no Instagram!')
+st.markdown('Inteligência artificial para previsão de risco de crédito para novos clientes construído para uma base de dados fictícia pela Inteledge para você testar. Ficou interessado em fazer algo parecido para o seu negócio? Entre em contato conosco em @inteledge.lab no [Instagram](https://instagram.com/inteledge.lab) ou no [LinkedIn](https://linkedin.com/inteledge.lab)!')
 st.write('Aqui, mostramos a previsão por cliente e como o nosso algoritmo chegou à conclusão para cada caso.')
 st.markdown('Confira também [algumas análises que fizemos para esta base de dados](https://share.streamlit.io/wmonteiro92/vendas-concessao-credito-analise-demo/main/exploration.py).')
 
@@ -141,29 +141,29 @@ col1, col2 = st.columns(2)
 with col1:
 	# variáveis 
 	idade = st.slider('Idade',
-		int(df['Idade'].min()), int(df['Idade'].max()), int(df['Idade'].iloc[2]))
+		int(df['Idade'].min()), int(df['Idade'].max()), int(df_negados['Idade'].iloc[0]))
 
 	valor_pedido = st.slider('Valor pedido',
 		int(df['Valor pedido'].min()), int(df['Valor pedido'].max()),
-		int(df['Valor pedido'].iloc[2]))
+		int(df_negados['Valor pedido'].iloc[0]))
 		 
 	num_parcelas = st.slider('Número de parcelas',
 		int(df['Número de parcelas'].min()), int(df['Número de parcelas'].max()),
-		int(df['Número de parcelas'].iloc[2]))
+		int(df_negados['Número de parcelas'].iloc[0]))
 
 	tempo_residencia = st.slider('Tempo morando na residência atual',
 		int(df['Tempo morando na residência atual'].min()),
 		int(df['Tempo morando na residência atual'].max()),
-		int(df['Tempo morando na residência atual'].iloc[2]))
+		int(df_negados['Tempo morando na residência atual'].iloc[0]))
 	   
 	num_emprestimos = st.slider('Número de empréstimos passados',
 		int(df['Número de empréstimos passados'].min()),
 		int(df['Número de empréstimos passados'].max()),
-		int(df['Número de empréstimos passados'].iloc[2]))
+		int(df_negados['Número de empréstimos passados'].iloc[0]))
 		
 	num_referencias = st.slider('Número de referências',
 		int(df['Número de referências'].min()), int(df['Número de referências'].max()),
-		int(df['Número de referências'].iloc[2]))
+		int(df_negados['Número de referências'].iloc[0]))
 		
 	saldo_conta = st.selectbox('Saldo na conta',
 		('Negativo', 'Entre 0 e 10000', 'Entre 10001 e 80000', 'Acima de 80001'))
@@ -176,7 +176,7 @@ with col1:
 	motivo_emprestimo = st.selectbox('Motivo do empréstimo',
 		('Carro usado', 'Carro novo', 'Móveis', 'Eletrônicos',
 		'Eletrodomésticos', 'Material de construção', 'Educação',
-		'Férias', 'Mão-de-obra', 'Casa', 'Outros'))
+		'Férias', 'Mão-de-obra', 'Casa', 'Outros'), 1)
 
 	investimento_em_conta = st.selectbox('Investimentos em conta',
 		('Menos de 5000', 'Entre 5001 e 10000', 'Entre 10001 e 50000',
@@ -230,4 +230,4 @@ with col2:
 	fig_xai, predicao = plot_importances(best_pipeline, df_inference)
 	st.plotly_chart(fig_xai)
     
-st.markdown('Instagram e Contato: [@inteledge.lab](https://instagram.com/inteledge.lab)')
+st.markdown('Siga-nos no [Instagram](https://instagram.com/inteledge.lab) e no [LinkedIn](https://linkedin.com/inteledge.lab)!')
