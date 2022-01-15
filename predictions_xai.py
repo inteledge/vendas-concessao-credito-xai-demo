@@ -118,7 +118,7 @@ with col1:
 	st.image('inteledge.png')
 
 st.title('Simulador de Crédito')
-st.markdown('Inteligência artificial para previsão de risco de crédito para novos clientes construído para uma base de dados fictícia pela Inteledge para você testar. Ficou interessado em fazer algo parecido para o seu negócio? Entre em contato conosco em @inteledge.lab no [Instagram](https://instagram.com/inteledge.lab) ou no [LinkedIn](https://linkedin.com/inteledge.lab)!')
+st.markdown('Inteligência artificial para previsão de risco de crédito para novos clientes construído para uma base de dados fictícia pela Inteledge para você testar. Ficou interessado em fazer algo parecido para o seu negócio? Entre em contato conosco em @inteledge.lab no [Instagram](https://instagram.com/inteledge.lab) ou no [LinkedIn](https://www.linkedin.com/company/inteledge/)!')
 st.write('Aqui, mostramos a previsão por cliente e como o nosso algoritmo chegou à conclusão para cada caso.')
 st.markdown('Confira também [algumas análises que fizemos para esta base de dados](https://share.streamlit.io/wmonteiro92/vendas-concessao-credito-analise-demo/main/exploration.py).')
 
@@ -230,4 +230,4 @@ with col2:
 	fig_xai, predicao = plot_importances(best_pipeline, df_inference)
 	st.plotly_chart(fig_xai)
     
-st.markdown('Siga-nos no [Instagram](https://instagram.com/inteledge.lab) e no [LinkedIn](https://linkedin.com/inteledge.lab)!')
+st.markdown('Siga-nos no [Instagram](https://instagram.com/inteledge.lab) e no [LinkedIn](https://www.linkedin.com/company/inteledge/)!')
